@@ -10,6 +10,8 @@ package com.codnect.fireselect.core;
  */
 public class Configuration {
 
+    private static final String LOG_TAG = Configuration.class.getSimpleName();
+
     private final MetadataSources metadataSources;
 
     public Configuration() {
@@ -37,6 +39,14 @@ public class Configuration {
     public Configuration addPackage(String packageName) {
         metadataSources.addPackage(packageName);
         return this;
+    }
+
+    /**
+     *
+     */
+    public void configure(){
+        MetadataBuilder metadataBuilder = new MetadataBuilder(metadataSources);
+        metadataBuilder.build();
     }
 
 }
